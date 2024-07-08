@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/page/cart_page.dart';
 import 'package:mobile/page/product_main.dart';
 import 'package:mobile/page/setting_page.dart';
+import 'package:mobile/page/transaction_page.dart';
+import 'package:mobile/page/notification_page.dart';
 import 'package:mobile/utils/color.dart';
 
 class MainAppPage extends StatefulWidget {
@@ -29,9 +31,8 @@ class _MainAppPageState extends State<MainAppPage> {
       children: [
         ProductMainPage(size: MediaQuery.of(context).size),
         CartPage(),
-        Container(
-          child: Text("Nnotifikasi", style: TextStyle(fontSize: 20),),
-        ),
+        NotificationPage(),
+        TransactionPage(),
         SettingPage(),
       ],
     );
@@ -42,12 +43,14 @@ class _MainAppPageState extends State<MainAppPage> {
       "assets/images/icon-dashboard.png",
       "assets/images/icon-shop.png",
       "assets/images/icon-bell.png",
+      "assets/images/icon-transaction.png",
       "assets/images/icon-setting.png",
     ];
     List textItems = [
       "Produk",
       "Keranjang",
       "Notifikasi",
+      "Transaksi",
       "Pengaturan",
     ];
 
@@ -63,7 +66,8 @@ class _MainAppPageState extends State<MainAppPage> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 10,left: 10, right: 10),
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 10, left: 10, right: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(iconItems.length, (index) {
@@ -78,7 +82,7 @@ class _MainAppPageState extends State<MainAppPage> {
                   Image.asset(
                     iconItems[index],
                     width: 24,
-                    color: pageIndex == index? Colors.green : Colors.black,
+                    color: pageIndex == index ? Colors.green : Colors.black,
                   ),
                   const SizedBox(
                     height: 5,
@@ -87,7 +91,7 @@ class _MainAppPageState extends State<MainAppPage> {
                     textItems[index],
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      color: pageIndex == index? Colors.green : Colors.black,
+                      color: pageIndex == index ? Colors.green : Colors.black,
                     ),
                   ),
                 ],
@@ -99,4 +103,3 @@ class _MainAppPageState extends State<MainAppPage> {
     );
   }
 }
-
